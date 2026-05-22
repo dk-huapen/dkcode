@@ -1,0 +1,153 @@
+/*页面背景颜色*/
+body {
+	background-color: lightgray
+}
+/*鼠标左键单击查看面板样式*/
+div.lookme {
+	display: none;
+	position: absolute;
+  	width: 300px;
+	height: 300px;
+  	box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+div.header {
+	height: 140px;
+  	background-color: white;
+  	padding: 8px;
+  	font-size: 20px;
+  	text-align: center;
+}
+
+div.container {
+  	text-align: center;
+     	height: 80px;
+  	padding: 1px;
+  	color: white;
+  	background-color: #4CAF50;
+  	font-size: 16px;
+}
+div.containerkks {
+	height: 30px;
+  	padding: 1px;
+  	color: white;
+  	background-color: red;
+  	text-align: center;
+}
+div.topheader {
+	height: 40px;
+  	padding: 1px;
+  	background-color: gray;
+  	text-align: right;
+}
+/*历史曲线面板样式*/
+div.history {
+	display: none;
+	position: absolute;
+  	width: 800px;
+	height: 500px;
+  	box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+div.historytop {
+	height: 40px;
+  	padding: 1px;
+  	background-color: green;
+  	text-align: right;
+}
+div.historyDygraph {
+  	text-align: center;
+       	height: 400px;
+  padding: 1px;
+  background-color: white;
+  font-size: 16px;
+  }
+div.historyparam {
+            height: 140px;
+  padding: 1px;
+  background-color: green;
+}
+/*最上边展示栏*/
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #4CAF50;
+}
+
+li {
+  float: left;
+  border-right:1px solid #bbb;
+}
+
+li:last-child {
+  border-right: none;
+}
+
+li span {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+/*鼠标右键按下链接面板样式*/
+        	.context-menu {
+            	display: none;
+            	position: absolute;
+            	background-color: #fff;
+            	border: 1px solid #ccc;
+            	min-width: 100px;
+            	box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            	z-index: 999;
+        	}
+        .	context-menu-item {
+            	padding: 5px 10px;
+            	cursor: pointer;
+        	}
+        	.context-menu-item:hover {
+            	background-color: #24d0d6;
+        	}
+/*最下边导航按钮*/
+.btn-group {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+.btn-group .button {
+  background-color: #4CAF50; /* 绿色 */
+  border: 1px solid green;
+  color: white;
+  padding: 6px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  float: left;
+}
+
+.btn-group .button:not(:last-child) {
+  border-right: none; /* 阻止双边框 */
+}
+
+.btn-group .button:hover {
+  background-color: #3e8e41;
+}
+/*历史曲线*/
+.dygraph-legend {text-align:right;} 
+.dygraph-legend > span.highlight {border:1px solid red;}
+/* 关闭按钮 */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}

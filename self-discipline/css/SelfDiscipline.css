@@ -1,0 +1,369 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: Arial;
+  padding: 10px;
+  background: #f1f1f1;
+}
+/* 页眉/Blog 标题 */
+.header {
+  padding: 30px;
+  text-align: center;
+  background: white;
+}
+
+.error {color: #FF0000;}
+.header h1 {
+  font-size: 50px;
+}
+
+/* 设置上导航栏的样式 */
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+/* 设置 topnav 链接的样式 */
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* 改变鼠标悬停时的颜色 */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* 创建两个不相等的彼此并排的浮动列 */
+/* 左列 */
+.leftcolumn {   
+  float: left;
+  width: 85%;
+}
+
+/* 右列 */
+.rightcolumn {
+  float: left;
+  width: 15%;
+  background-color: #f1f1f1;
+  padding-left: 20px;
+}
+
+.colcard {
+  background-color: white;
+  padding: 20px;
+  margin-top: 20px;
+  float: left;
+  width: 50%;
+}
+/* 伪图像 */
+.fakeimg {
+  background-color: #aaa;
+  width: 100%;
+  padding: 20px;
+}
+
+/* 为文章添加卡片效果 */
+.card {
+  background-color: white;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+/* 清除列之后的浮动 */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* 页脚 */
+.footer {
+  padding: 20px;
+  text-align: center;
+  background: #ddd;
+  margin-top: 20px;
+}
+
+/* 响应式布局 - 当屏幕的宽度小于 800 像素时，使两列堆叠而不是并排 */
+@media screen and (max-width: 800px) {
+  .leftcolumn, .rightcolumn {   
+    width: 100%;
+    padding: 0;
+  }
+}
+
+/* 响应式布局 - 当屏幕的宽度小于 400 像素时，使导航链接堆叠而不是并排 */
+@media screen and (max-width: 400px) {
+  .topnav a {
+    float: none;
+    width: 100%;
+  }
+}
+/*class=list的table属性*/
+.list {
+	font-family:Arial,Helvetica,sans-serif;
+	border-collapse:collapse;
+	margin: auto;
+	width:100%
+}
+.list td, .list th {
+	border: 1px solid #ddd;
+	padding: 8px;
+}
+.list tr:nth-child(even){backgrout-color: #f2f2f2;}
+.list tr:hover {background-color: #ddd;}
+.list th {
+	padding-top: 12px;
+	padding-bottom: 12px;
+	text-align: center;
+	background-color: #4CAF50;
+	color: white;
+}
+/*class=select的table属性*/
+.select {
+	font-family:Arial,Helvetica,sans-serif;
+	margin: auto;
+	width: 100%;
+	border-style: outset;
+	border-color: #4CAF50;
+	background-color: #cccccc;
+}
+.select th, .select td {
+	border: 0;
+	text-align: center;
+}
+
+.right {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background-color: #f1f1f1;
+  border: 1px solid #555;
+}
+
+.right a {
+  display: block;
+  color: #000;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+.right li a {
+  text-align: center;
+  border-bottom: 1px solid #555;
+}
+
+.right li:last-child {
+  border-bottom: none;
+}
+
+.right li a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.right li a:hover:not(.active) {
+  background-color: #555;
+  color: white;
+}
+.col-1{
+width:8.33%;
+float:left;
+margin-top:6px;
+}
+.col-2{
+width:16.66%;
+float:left;
+margin-top:6px;
+}
+.col-3{width:25%;
+float:left;
+margin-top:6px;
+}
+.col-4{width:33.33%;
+float:left;
+margin-top:6px;
+}
+.col-5{width:41.66%;
+float:left;
+margin-top:6px;
+}
+input[type=text]{
+padding:12 20px;
+margin:8px 0;
+display:inline-block;
+border:1px solid #ccc;
+border-radius:4px;
+box-sizing:border-box
+}
+button{
+background-color:#4CAF50;
+color:white;
+padding:14px 20px;
+margin:8px 0;
+border:none;
+border-radius:4px;
+cursor:pointer;
+}
+select{
+padding:12 20px;
+margin:8px 0;
+display:inline-block;
+border:1px solid #ccc;
+border-radius:4px;
+box-sizing:border-box
+}
+input[type=submit]{
+background-color:#4CAF50;
+color:white;
+padding:14px 20px;
+margin:8px 0;
+border:none;
+border-radius:4px;
+cursor:pointer;
+}
+input[type=submit]:hover{
+	background-color:#45a049;
+}
+textarea{
+height:12px 20px;
+box-sizing:border-box;
+border:2px solid #ccc;
+border-radius:4px;
+background-color:#f8f8f8;
+font-size:16px;
+resize:none;
+}
+.col-6{width:50%;}
+.col-7{width:58.33%;}
+.col-8{width:66.66%;}
+.col-9{width:75%;}
+.col-10{width:83.33%;}
+.col-11{width:91.66%;}
+.col-12{width:100%;}
+div#header
+		{
+		margin: 0 0 0 12px;
+		padding: 0;
+		border: 0;
+		width: 1370px;
+		height: 100px;
+		background-color:#fdfcf8;
+		}
+div#navfirst
+		{
+		height: 48px;
+		width: 1370px;
+		margin: 0 0 0 12px;
+		padding: 0;
+		border: 0;
+		background: #E8E7E3;
+		}
+div#navfirst ul#menu
+		{
+		height: 48px;
+		width: 1210px;
+		background: transparent url(/ui2017/bg.png) top left no-repeat;
+		margin: 0;
+		padding: 0;
+		position: relative;
+		}
+div#navfirst ul#menu li
+		{
+		margin:0;
+		padding:0;
+		list-style:none;
+		position:absolute;
+		top:0;
+		}
+#h	{left:0;width:155px;}
+#b	{left:155px;width:157px;}
+#s	{left:312px;width:167px;}
+#d 	{left:479px;width:158px;}
+#r 	{left:637px;width:158px;}
+#f 	{left:795px;width:158px;}
+#j 	{left:953px;width:158px;}
+#e 	{left:1312.5px;width:187.5px;}
+div#navsecond
+		{
+		float: left;
+		margin: 0 0 0 6px;
+		padding: 0;
+		border: 0;
+		width: 180px;
+		background : transparent;
+		position: relative;
+		}
+div#course {
+	background:transparent url(../diary_img/bg.png) 0 -700px no-repeat;
+	padding:66px 0 10px 0;
+	}
+div#maincontent
+		{
+		float: left;
+		margin: 0;
+		padding: 30px 0 0 0;
+		border: 0;
+		width: 1500px;
+		background: transparent;
+		}
+div#main1content
+		{
+		float: left;
+		margin: 0;
+		padding: 30px 0 0 0;
+		border: 0;
+		width: 300px;
+		background: transparent;
+		}
+div#main2content
+		{
+		float: left;
+		margin: 0;
+		padding: 30px 0 0 0;
+		border: 0;
+		width: 300px;
+		background: transparent;
+		}
+
+div#main3content
+		{
+		float: left;
+		margin: 0;
+		padding: 30px 0 0 0;
+		border: 0;
+		width: 300px;
+		background: transparent;
+		}
+div#sidebar
+		{
+		float: left;
+		margin: 0;
+		padding: 0;
+		border: 0;
+		width: 180px;
+		background: transparent;
+//		background:transparent url(../diary_img/bg.png) 400px -700px no-repeat;
+		}
+div#footer
+		{
+		clear: both;
+		margin: 0;
+		padding-top: 16px;
+		margin-left: 12px;
+		width: 1210px;
+		line-height:24px;
+		background: #f0f0f0;
+		border-top: 0px solid #fff;
+		background: #fdfcf8 url(/ui2017/footer.png) top left repeat-x;
+		font-family:PingFangSC-Regular, 'Î¢ÈíÑÅºÚ', Verdana, Arial, 'ËÎÌå';
+		}
+

@@ -1,0 +1,89 @@
+
+<line x1="1850" y1="70" x2="1850" y2="920" stroke="orange" stroke-width="2"/>
+
+<text x="200" y="25" fill="black" font-size="22" font-family="Arial">左墙</text>
+<text x="500" y="350" fill="black" font-size="22" font-family="Arial">前墙</text>
+<text x="700" y="25" fill="black" font-size="22" font-family="Arial">右墙</text>
+<!--锅炉本体----->
+<!--<polygon points='50,100 400,100 400,300 320,300 250,350 250,400 320,500 320,850 200,950 150,950 50,850' fill='gray' stroke="black" stroke-width="1"></polygon>--->
+<polygon points='600,100 350,100 350,300 380,300 450,350 450,400 370,500 370,850 450,950 500,950 600,850' fill='gray' stroke="black" stroke-width="1"></polygon>
+<!--省煤器左----->
+<polygon points='350,100 50,100 50,450 80,480 20,480 20,550 100,550 170,600 265,500 265,300 350,300' fill='gray' stroke="black" stroke-width="1"></polygon>
+<polyline points="160,500 160,460 260,460 260,455 60,455 55,450 260,450 260,445 55,445 55,440 260,440 260,435 55,435 55,430 260,430 260,425 122,425 122,385 145,385 145,360 260,360 260,355 55,355 55,350 260,350 260,345 55,345 55,340 260,340 260,335 55,335 55,340" style="fill:none" stroke="green" stroke-width="2"/>
+<polyline points="193,425 193,385 170,385 170,360" style="fill:none" stroke="green" stroke-width="2"/>
+<text x="100" y="352" fill="black" font-size="20" font-family="Arial">一级省煤器</text>
+<text x="100" y="448" fill="black" font-size="20" font-family="Arial">二级省煤器</text>
+<!--过热器----->
+<polyline points="230,105 230,290 235,290 235,105 240,105 240,290 245,290 245,105 250,105 250,290 255,290 255,105" style="fill:none" stroke="red" stroke-width="2"/>
+<text x="232" y="140" fill="black" font-size="20" font-family="Arial">低</text>
+<text x="232" y="165" fill="black" font-size="20" font-family="Arial">温</text>
+<text x="232" y="190" fill="black" font-size="20" font-family="Arial">过</text>
+<text x="232" y="215" fill="black" font-size="20" font-family="Arial">热</text>
+<text x="232" y="240" fill="black" font-size="20" font-family="Arial">器</text>
+<polyline points="370,105 370,290 375,290 375,105 380,105 380,290 385,290 385,105 390,105 390,290 395,290 395,105" style="fill:none" stroke="red" stroke-width="2"/>
+<text x="372" y="140" fill="black" font-size="20" font-family="Arial">高</text>
+<text x="372" y="165" fill="black" font-size="20" font-family="Arial">温</text>
+<text x="372" y="190" fill="black" font-size="20" font-family="Arial">过</text>
+<text x="372" y="215" fill="black" font-size="20" font-family="Arial">热</text>
+<text x="372" y="240" fill="black" font-size="20" font-family="Arial">器</text>
+<polyline points="500,105 500,400 505,400 505,105 510,105 510,400 515,400 515,105 520,105 520,400 525,400 525,105" style="fill:none" stroke="red" stroke-width="2"/>
+<text x="502" y="140" fill="black" font-size="20" font-family="Arial">屏</text>
+<text x="502" y="165" fill="black" font-size="20" font-family="Arial">式</text>
+<text x="502" y="190" fill="black" font-size="20" font-family="Arial">过</text>
+<text x="502" y="215" fill="black" font-size="20" font-family="Arial">热</text>
+<text x="502" y="240" fill="black" font-size="20" font-family="Arial">器</text>
+<!--锅炉本体----->
+<polygon points='850,100 1100,100 1100,300 1070,300 1000,350 1000,400 1080,500 1080,850 1000,950 950,950 850,850' fill='gray' stroke="black" stroke-width="1"></polygon>
+<!--前墙----->
+<rect x="600" y="620" width="250" height="230" fill="gray" stroke="black" stroke-width="2"></rect>
+<!--后墙----->
+<rect x="1080" y="620" width="250" height="230" fill="gray" stroke="black" stroke-width="2"></rect>
+<!--省煤器右----->
+<polygon points='1100,100 1400,100 1400,450 1370,480 1430,480 1430,550 1350,550 1280,600 1185,500 1185,300 1100,300' fill='gray' stroke="black" stroke-width="1"></polygon>
+<polyline points="1290,500 1290,460 1190,460 1190,455 1390,455 1395,450 1190,450 1190,445 1395,445 1395,440 1190,440 1190,435 1395,435 1395,430 1190,430 1190,425 1328,425 1328,385 1305,385 1305,360 1190,360 1190,355 1395,355 1395,350 1190,350 1190,345 1395,345 1395,340 1190,340 1190,335 1395,335 1395,340" style="fill:none" stroke="green" stroke-width="2"/>
+<polyline points="1257,425 1257,385 1280,385 1280,360" style="fill:none" stroke="green" stroke-width="2"/>
+<text x="1240" y="352" fill="black" font-size="20" font-family="Arial">一级省煤器</text>
+<text x="1240" y="448" fill="black" font-size="20" font-family="Arial">二级省煤器</text>
+<!--过热器----->
+<polyline points="1200,105 1200,290 1205,290 1205,105 1210,105 1210,290 1215,290 1215,105 1220,105 1220,290 1225,290 1225,105" style="fill:none" stroke="red" stroke-width="2"/>
+<text x="1202" y="140" fill="black" font-size="20" font-family="Arial">低</text>
+<text x="1202" y="165" fill="black" font-size="20" font-family="Arial">温</text>
+<text x="1202" y="190" fill="black" font-size="20" font-family="Arial">过</text>
+<text x="1202" y="215" fill="black" font-size="20" font-family="Arial">热</text>
+<text x="1202" y="240" fill="black" font-size="20" font-family="Arial">器</text>
+<polyline points="1055,105 1055,290 1060,290 1060,105 1065,105 1065,290 1070,290 1070,105 1075,105 1075,290 1080,290 1080,105" style="fill:none" stroke="red" stroke-width="2"/>
+<text x="1057" y="140" fill="black" font-size="20" font-family="Arial">高</text>
+<text x="1057" y="165" fill="black" font-size="20" font-family="Arial">温</text>
+<text x="1057" y="190" fill="black" font-size="20" font-family="Arial">过</text>
+<text x="1057" y="215" fill="black" font-size="20" font-family="Arial">热</text>
+<text x="1057" y="240" fill="black" font-size="20" font-family="Arial">器</text>
+<polyline points="925,105 925,400 930,400 930,105 935,105 935,400 940,400 940,105 945,105 945,400 950,400 950,105" style="fill:none" stroke="red" stroke-width="2"/>
+<text x="927" y="140" fill="black" font-size="20" font-family="Arial">屏</text>
+<text x="927" y="165" fill="black" font-size="20" font-family="Arial">式</text>
+<text x="927" y="190" fill="black" font-size="20" font-family="Arial">过</text>
+<text x="927" y="215" fill="black" font-size="20" font-family="Arial">热</text>
+<text x="927" y="240" fill="black" font-size="20" font-family="Arial">器</text>
+
+<!--省煤器至脱硝烟道----->
+<polygon points='1430,480 1450,480 1450,150 1550,150 1550,220 1520,220 1520,510 1480,550 1430,550' fill='gray' stroke="black" stroke-width="1"></polygon>
+<!--脱硝反应器----->
+<polygon points='1550,150 1640,150 1820,210 1820,500 1580,500 1580,220 1550,220' fill='gray' stroke="black" stroke-width="1"></polygon>
+<!--脱硝反与空预器连接----->
+<polygon points='1600,500 1600,560 1590,570 1550,570 1550,650 1700,650 1750,600 1800,510 1800,500' fill='gray' stroke="black" stroke-width="1"></polygon>
+
+<!---空预器---->
+<rect x="1470" y="750" width="150" height="100" fill="gray" stroke="black" stroke-width="2"></rect>
+<rect x="1670" y="750" width="150" height="100" fill="gray" stroke="black" stroke-width="2"></rect>
+<!---吹灰器状态---->
+<text x="650" y="500" fill="black" font-size="22" font-family="Arial">炉膛吹灰器状态</text>
+<text x="610" y="530" fill="black" font-size="20" font-family="Arial">左前侧</text>
+<text x="780" y="530" fill="black" font-size="20" font-family="Arial">右后侧</text>
+<text x="680" y="558" fill="black" font-size="20" font-family="Arial">正在前进</text>
+<text x="680" y="583" fill="black" font-size="20" font-family="Arial">正在后退</text>
+<text x="700" y="608" fill="black" font-size="20" font-family="Arial">过载</text>
+<text x="650" y="363" fill="black" font-size="22" font-family="Arial">伸缩吹灰器状态</text>
+<text x="610" y="393" fill="black" font-size="20" font-family="Arial">左前侧</text>
+<text x="780" y="393" fill="black" font-size="20" font-family="Arial">右后侧</text>
+<text x="680" y="418" fill="black" font-size="20" font-family="Arial">正在前进</text>
+<text x="680" y="443" fill="black" font-size="20" font-family="Arial">正在后退</text>
+<text x="700" y="468" fill="black" font-size="20" font-family="Arial">过载</text>

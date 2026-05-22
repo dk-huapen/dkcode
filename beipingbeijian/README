@@ -1,0 +1,30 @@
+beipingbeijian.php		备品备件主页
+add_goods.php			添加物品信息	
+insert_goods.php		添加物品信息至至数据库
+edit_content.php		编辑物品清单
+update_goods.php		更新物品信息至数据库
+add_purchase_list.php		申报备件
+insert_purchase.php		插入清单信息至数据库
+conn.php			连接至数据库
+edit_purchase.php		更新清单信息至数据库
+goods.php			物品清单
+inventory.php			库存清单
+look_content.php		查看物品信息
+purchase_in_store.php		商品入库表
+in_store.php			商品入库至数据库
+README				文件列表
+record.php			记录清单
+select_goods.php		筛选备件
+update_purchase.php		更新清单信息至数据库
+page_check.php			ajax页面更新
+store_out.php			商品出库表
+out_store.php			商品出库至数据库
+
+store_add.php
+
+look_part.php
+insert_part.php
+del_part.php
+add_part.php
+edit_part.php
+update_part.php

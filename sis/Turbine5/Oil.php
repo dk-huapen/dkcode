@@ -1,0 +1,127 @@
+<html>
+	<head>
+    		<title>4号汽轮机油系统</title>
+		<?php include("../header.php")?>
+	</head>
+	<body>
+		<?php include("top.php")?>
+		<center><h1>4号汽轮机油系统</h1></center>
+		<script>
+			var page = 323;
+			var test =<?php
+			include('../conn.php');
+			$sql="SELECT kks,name,value,unit,updatetime,HH,H,HHH,L,LL,LLL,flag,angle,indexID,X,Y FROM sis where page=323 union SELECT kks,name,value,unit,updatetime,HH,H,HHH,L,LL,LLL,flag,angle1,indexID,X1,Y1 FROM sis where page1=323";
+			$result = mysqli_query($con,$sql);
+			$pointArray = array();
+
+			$str = "{";
+				while($row = mysqli_fetch_assoc($result)){
+					$str = $str. "_".$row['kks'].":{name:'".$row['name']."',HH:'".$row['HH']."',H:'".$row['H']."',HHH:'".$row['HHH']."',L:'".$row['L']."',LL:'".$row['LL']."',LLL:'".$row['LLL']."',updatetime:'".$row['updatetime']."',unit:'".$row['unit']."',value:".$row['value'].",flag:".$row['flag']."},";
+					$pointArray[$row['kks']] = array($row['indexID'],$row['name'],$row['X'],$row['Y'],$row['flag'],$row['LLL'],$row['angle']);
+
+				}
+				$strre = chop($str,",");
+			$strre = $strre."}";
+
+			echo $strre;
+
+			mysqli_close($con);
+	
+			?>;
+		</script>
+	<!--SIS画面-->
+		<svg width="1860" height="1000" viewBox="0 0 1860 1000" fill="gray">
+			<?php
+				$locateX = 0;
+				$locateY = 0;
+			?>
+
+
+
+<line x1="1850" y1="10" x2="1850" y2="875" stroke="orange" stroke-width="2"/>
+<!---EH油箱---->
+<rect x="1380" y="830" width="360" height="120" fill="orange" stroke="black" stroke-width="1"></rect>
+<text x="1635" y="860" fill="black" font-size="22" font-family="Arial">控制油箱</text>
+<text x="1420" y="855" fill="black" font-size="20" font-family="Arial">油位高报警(500mm)</text>
+<text x="1420" y="880" fill="black" font-size="20" font-family="Arial">油位低报警(300mm)</text>
+<text x="1420" y="905" fill="black" font-size="20" font-family="Arial">油位低低报警(180mm)</text>
+<line x1="1420" y1="500" x2="1420" y2="830" stroke="orange" stroke-width="2"/>
+<line x1="1520" y1="600" x2="1520" y2="830" stroke="orange" stroke-width="2"/>
+<line x1="1420" y1="600" x2="1520" y2="600" stroke="orange" stroke-width="2"/>
+<line x1="1420" y1="500" x2="1770" y2="500" stroke="orange" stroke-width="2"/>
+<line x1="1770" y1="500" x2="1770" y2="390" stroke="orange" stroke-width="2"/>
+<line x1="1420" y1="390" x2="1770" y2="390" stroke="orange" stroke-width="2"/>
+
+<circle cx="1420" cy="670" r="13" fill="gray" stroke="black" stroke-width="2"></circle>
+<line x1="1407" y1="670" x2="1433" y2="670" stroke="black" stroke-width="3"/>
+
+<circle cx="1520" cy="670" r="13" fill="gray" stroke="black" stroke-width="2"></circle>
+<line x1="1507" y1="670" x2="1533" y2="670" stroke="black" stroke-width="3"/>
+
+
+<text x="1515" y="420" fill="black" font-size="18" font-family="Arial">OPC油压低(10MPa)</text>
+<text x="1695" y="716" fill="black" font-size="18" font-family="Arial">冷却泵状态</text>
+<text x="1705" y="741" fill="black" font-size="18" font-family="Arial">就地手动运行</text>
+<text x="1705" y="766" fill="black" font-size="18" font-family="Arial">就地手动停止</text>
+<text x="1705" y="791" fill="black" font-size="18" font-family="Arial">温控仪温度高</text>
+<text x="1705" y="816" fill="black" font-size="18" font-family="Arial">温控仪温度低</text>
+<line x1="1600" y1="450" x2="1600" y2="830" stroke="orange" stroke-width="2" stroke-dasharray="10 10"/>
+<line x1="1480" y1="450" x2="1600" y2="450" stroke="orange" stroke-width="2" stroke-dasharray="10 10"/>
+
+<line x1="1670" y1="570" x2="1670" y2="830" stroke="orange" stroke-width="2" stroke-dasharray="10 10"/>
+<line x1="1670" y1="570" x2="1720" y2="570" stroke="orange" stroke-width="2" stroke-dasharray="10 10"/>
+<line x1="1720" y1="370" x2="1720" y2="570" stroke="orange" stroke-width="2" stroke-dasharray="10 10"/>
+
+<!---润滑油箱---->
+<rect x="830" y="830" width="510" height="120" fill="orange" stroke="black" stroke-width="1"></rect>
+<text x="1200" y="900" fill="black" font-size="22" font-family="Arial">润滑油箱</text>
+<text x="1100" y="942" fill="black" font-size="20" font-family="Arial">注油器</text>
+<text x="1030" y="943" fill="black" font-size="20" font-family="Arial">2B</text>
+<text x="970" y="943" fill="black" font-size="20" font-family="Arial">2A</text>
+
+<line x1="870" y1="500" x2="870" y2="830" stroke="orange" stroke-width="2"/>
+<line x1="970" y1="500" x2="970" y2="830" stroke="orange" stroke-width="2"/>
+<line x1="1070" y1="500" x2="1070" y2="830" stroke="orange" stroke-width="2"/>
+
+<text x="870" y="820" fill="black" font-size="18" font-family="Arial">直流油泵</text>
+<text x="970" y="820" fill="black" font-size="18" font-family="Arial">交流油泵</text>
+<text x="1070" y="820" fill="black" font-size="18" font-family="Arial">高压油泵</text>
+<line x1="1120" y1="500" x2="1120" y2="830" stroke="orange" stroke-width="2"/>
+<line x1="1140" y1="500" x2="1140" y2="830" stroke="orange" stroke-width="2"/>
+<line x1="1160" y1="500" x2="1160" y2="830" stroke="orange" stroke-width="2"/>
+<text x="1170" y="820" fill="black" font-size="18" font-family="Arial">1号排烟风机</text>
+<!---冷油器A--->
+<rect x="480" y="800" width="50" height="120" fill="gray" stroke="black" stroke-width="1"></rect>
+<rect x="680" y="800" width="50" height="120" fill="gray" stroke="black" stroke-width="1"></rect>
+<!---冷油器B--->
+
+
+
+
+
+
+
+
+
+
+
+
+	<?php 
+				foreach($pointArray as $kks=>$d){
+					if($d[4]==0){
+					dkAI($kks);
+					}
+					if($d[4]==1){
+					dkDI($kks);
+					}
+					if($d[4]==2){
+					dkValue($kks);
+					}
+				}
+	?>
+
+	</svg>
+					<?php include("footer.php")?>
+
+</body>
+</html>

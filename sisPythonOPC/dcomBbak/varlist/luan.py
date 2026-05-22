@@ -1,0 +1,14 @@
+No1Boilerlist[u'[Control Structure].Root.Net#1 Control Network.LuAnPowerPlantNet1.Applications.C4.Diagrams.Manual.10HAH70AA003:IO.FB0.Value'] = ["10HAH70AA003_FB0","1号炉主蒸汽出口电动门全关反馈"]#潞安SIS
+No1Boilerlist[u'[Control Structure].Root.Net#1 Control Network.LuAnPowerPlantNet1.Applications.C1.Diagrams.BM.10HAH70CP101:IO.Value'] = ["10HAH70CP101","1号炉集汽集箱蒸汽压力1"]#潞安SIS
+No1Boilerlist[u'[Control Structure].Root.Net#1 Control Network.LuAnPowerPlantNet1.Applications.C2.Diagrams.C2_Mill.10HFA10CL101:IO.Value'] = ["10HFA10CL101","原煤仓A料位"]#潞安SIS
+No1Boilerlist[u'[Control Structure].Root.Net#1 Control Network.LuAnPowerPlantNet1.Applications.C3.Diagrams.C3_Mill.10HFA20CL101:IO.Value'] = ["10HFA20CL101","原煤仓B料位"]#潞安SIS
+No1Boilerlist[u'[Control Structure].Root.Net#1 Control Network.LuAnPowerPlantNet1.Applications.C3.Diagrams.C3_Mill.10HFA40CL101:IO.Value'] = ["10HFA40CL101","原煤仓D料位"]#潞安SIS
+No1Boilerlist[u'[Control Structure].Root.Net#1 Control Network.LuAnPowerPlantNet1.Applications.C2.Diagrams.C2_Mill.10HFA30CL101:IO.Value'] = ["10HFA30CL101","原煤仓C料位"]#潞安SIS
+No1Boilerlist[u'[Control Structure].Root.Net#1 Control Network.LuAnPowerPlantNet1.Applications.C1.Diagrams.BM.10HFY10FA101:IO.SP.Value'] = ["10HFY10FA101AO","1号炉给煤机A煤量指令"]#潞安SIS
+No1Boilerlist[u'[Control Structure].Root.Net#1 Control Network.LuAnPowerPlantNet1.Applications.C1.Diagrams.BM.10HFY20FA101:IO.SP.Value'] = ["10HFY20FA101AO","1号炉给煤机B煤量指令"]#潞安SIS
+No1Boilerlist[u'[Control Structure].Root.Net#1 Control Network.LuAnPowerPlantNet1.Applications.C1.Diagrams.BM.10HFY30FA101:IO.SP.Value'] = ["10HFY30FA101AO","1号炉给煤机C煤量指令"]#潞安SIS
+No1Boilerlist[u'[Control Structure].Root.Net#1 Control Network.LuAnPowerPlantNet1.Applications.C1.Diagrams.BM.10HFY40FA101:IO.SP.Value'] = ["10HFY40FA101AO","1号炉给煤机D煤量指令"]#潞安SIS
+No1Boilerlist[u'[Control Structure].Root.Net#1 Control Network.LuAnPowerPlantNet1.Applications.C4.Diagrams.NaturalGas.B10FT1002real:Out.Forward.Value'] = ["10FT1002","1号炉燃气流量"]#潞安SIS
+No1Boilerlist[u'[Control Structure].Root.Net#1 Control Network.LuAnPowerPlantNet1.Applications.C4.Diagrams.Manual.B10LBA10AA002RM:IO.Value'] = ["10HAH70AA002RM","1号炉出口至主蒸汽母管隔离电动门远方反馈"]#潞安SIS
+No1Boilerlist[u'[Control Structure].Root.Net#1 Control Network.LuAnPowerPlantNet1.Applications.C1.Diagrams.DrumLvl.B_10LAB70CF101_CALC:Out.Forward.Value'] = ["10LAB70CF101_CALC","1号炉给水流量1"]#潞安SIS
+No1Boilerlist[u'[Control Structure].Root.Net#1 Control Network.LuAnPowerPlantNet1.Applications.C1.Diagrams.DrumLvl.B_10LBA10CF101_CALC:Out.Forward.Value'] = ["10LBA10CF101_CALC","1号炉锅炉出口主蒸汽流量1"]#潞安SIS

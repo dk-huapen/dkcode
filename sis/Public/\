@@ -1,0 +1,113 @@
+<html>
+	<head>
+    		<title>次高压蒸汽系统</title>
+		<?php include("../header.php")?>
+	</head>
+	<body>
+		<?php include("top.php")?>
+		<center><h1>次高压蒸汽系统</h1></center>
+		<script>
+			var page = 203;
+			var test =<?php
+			include('../conn.php');
+			$sql="SELECT kks,name,value,unit,updatetime,HH,H,HHH,L,LL,LLL,flag,angle,indexID,X,Y FROM sis where page=203 or page1=203";
+			$result = mysqli_query($con,$sql);
+			$pointArray = array();
+
+			$str = "{";
+				while($row = mysqli_fetch_assoc($result)){
+					$str = $str. "_".$row['kks'].":{name:'".$row['name']."',HH:'".$row['HH']."',H:'".$row['H']."',HHH:'".$row['HHH']."',L:'".$row['L']."',LL:'".$row['LL']."',LLL:'".$row['LLL']."',updatetime:'".$row['updatetime']."',unit:'".$row['unit']."',value:".$row['value'].",flag:".$row['flag']."},";
+					$pointArray[$row['kks']] = array($row['indexID'],$row['name'],$row['X'],$row['Y'],$row['flag'],$row['LLL'],$row['angle']);
+
+				}
+				$strre = chop($str,",");
+			$strre = $strre."}";
+
+			echo $strre;
+
+			mysqli_close($con);
+	
+			?>;
+		</script>
+	<!--SIS画面-->
+		<svg width="1860" height="1000" viewBox="0 0 1860 1000" fill="gray">
+			<?php
+				$locateX = 0;
+				$locateY = 0;
+			?>
+
+
+<line x1="510" y1="260" x2="510" y2="50" stroke="red" stroke-width="3"/><!--2号锅炉蒸汽母管-->
+
+<line x1="50" y1="440" x2="1700" y2="440" stroke="red" stroke-width="4"/><!--次高压蒸汽母管-->
+
+
+<line x1="210" y1="500" x2="210" y2="905" stroke="red" stroke-width="3"/><!--一段次高压至低低压蒸汽母管-->
+<line x1="490" y1="500" x2="490" y2="905" stroke="red" stroke-width="3"/><!--二段次高压外供蒸汽母管-->
+<line x1="770" y1="500" x2="770" y2="905" stroke="red" stroke-width="3"/><!--4号汽轮机进行汽母管-->
+<line x1="1050" y1="500" x2="1050" y2="905" stroke="red" stroke-width="3"/><!--5号汽轮机进行汽母管-->
+<line x1="1670" y1="500" x2="1670" y2="905" stroke="red" stroke-width="3"/><!--5号汽轮机进行汽母管-->
+<circle cx='1330' cy='830' r='20' fill='white' stroke='black' stroke-width='2'></circle>
+<text x="1250" y="940" fill="black" font-size="20" font-family="Arial">至二段低低压蒸汽管网</text>
+<!--二段高压主蒸汽管道-->
+<line x1="1700" y1="30" x2="1400" y2="30" stroke="red" stroke-width="2"/>
+<line x1="1700" y1="30" x2="1700" y2="500" stroke="red" stroke-width="2"/>
+<circle cx='1630' cy='30' r='20' fill='white' stroke='black' stroke-width='2'></circle>
+<line x1="1630" y1="50" x2="1630" y2="170" stroke="green" stroke-width="2"/>
+<line x1="1530" y1="170" x2="1630" y2="170" stroke="green" stroke-width="2"/>
+<line x1="1530" y1="100" x2="1630" y2="100" stroke="green" stroke-width="2"/>
+
+<line x1="1700" y1="100" x2="1750" y2="100" stroke="red" stroke-width="2"/>
+<line x1="1750" y1="100" x2="1750" y2="220" stroke="red" stroke-width="2"/>
+<line x1="1700" y1="220" x2="1750" y2="220" stroke="red" stroke-width="2"/>
+<polygon points='1740,110,1760,110,1740,150,1760,150' fill='white' stroke='black' stroke-width='2' ></polygon>
+<polygon points='1740,170,1760,170,1740,210,1760,210' fill='white' stroke='black' stroke-width='2' ></polygon>
+
+<polygon points='1720,240,1720,260,1760,240,1760,260' fill='white' stroke='black' stroke-width='2' ></polygon>
+
+<line x1="1700" y1="280" x2="1750" y2="280" stroke="red" stroke-width="2"/>
+<line x1="1750" y1="280" x2="1750" y2="400" stroke="red" stroke-width="2"/>
+<line x1="1700" y1="400" x2="1750" y2="400" stroke="red" stroke-width="2"/>
+<polygon points='1740,290,1760,290,1740,330,1760,330' fill='white' stroke='black' stroke-width='2' ></polygon>
+<polygon points='1740,350,1760,350,1740,390,1760,390' fill='white' stroke='black' stroke-width='2' ></polygon>
+<!--至二段低低压蒸汽管网-->
+<line x1="1330" y1="440" x2="1330" y2="905" stroke="red" stroke-width="3"/>
+
+<polygon points='1320,555,1340,555,1320,595,1340,595' fill='white' stroke='black' stroke-width='2' ></polygon>
+
+<line x1="1330" y1="455" x2="1380" y2="455" stroke="red" stroke-width="2"/>
+<line x1="1380" y1="455" x2="1380" y2="575" stroke="red" stroke-width="2"/>
+<line x1="1330" y1="575" x2="1380" y2="575" stroke="red" stroke-width="2"/>
+<polygon points='1370,530,1390,530,1370,570,1390,570' fill='white' stroke='black' stroke-width='2' ></polygon>
+<polygon points='1370,580,1390,580,1370,620,1390,620' fill='white' stroke='black' stroke-width='2' ></polygon>
+
+<line x1="1330" y1="650" x2="1380" y2="650" stroke="red" stroke-width="2"/>
+<line x1="1380" y1="650" x2="1380" y2="770" stroke="red" stroke-width="2"/>
+<line x1="1330" y1="770" x2="1380" y2="770" stroke="red" stroke-width="2"/>
+<polygon points='1370,530,1390,530,1370,570,1390,570' fill='white' stroke='black' stroke-width='2' ></polygon>
+<polygon points='1370,580,1390,580,1370,620,1390,620' fill='white' stroke='black' stroke-width='2' ></polygon>
+
+
+
+
+
+
+	<?php 
+				foreach($pointArray as $kks=>$d){
+					if($d[4]==0){
+					dkAI($kks);
+					}
+					if($d[4]==1){
+					dkDI($kks);
+					}
+					if($d[4]==2){
+					dkValue($kks);
+					}
+				}
+	?>
+
+	</svg>
+					<?php include("footer.php")?>
+
+</body>
+</html>

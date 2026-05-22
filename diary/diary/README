@@ -1,0 +1,2 @@
+分钟 小时 天 月 星期 php程序 php脚本 每天定时保存日志
+51 16 * * * /usr/bin/php /var/www/html/diary/diary/test.php

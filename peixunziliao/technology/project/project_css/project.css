@@ -1,0 +1,117 @@
+div#header
+		{
+		margin: 0 0 0 12px;
+		padding: 0;
+		border: 0;
+		width: 1370px;
+		height: 50px;
+		background-color:#fdfcf8;
+		}
+div#navfirst
+		{
+		height: 48px;
+		width: 1370px;
+		margin: 0 0 0 12px;
+		padding: 0;
+		border: 0;
+		background: #E8E7E3;
+		}
+div#navfirst ul#menu
+		{
+		height: 48px;
+		width: 1210px;
+		background: transparent url(/ui2017/bg.png) top left no-repeat;
+		margin: 0;
+		padding: 0;
+		position: relative;
+		}
+div#navfirst ul#menu li
+		{
+		margin:0;
+		padding:0;
+		list-style:none;
+		position:absolute;
+		top:0;
+		}
+#h	{left:0;width:155px;}
+#b	{left:155px;width:157px;}
+#s	{left:312px;width:167px;}
+#d 	{left:479px;width:158px;}
+#r 	{left:637px;width:158px;}
+#f 	{left:795px;width:158px;}
+#j 	{left:953px;width:158px;}
+#e 	{left:1111px;width:158px;}
+div#navsecond
+		{
+		float: left;
+		margin: 0 0 0 6px;
+		padding: 0;
+		border: 0;
+		width: 180px;
+		background : transparent;
+		position: relative;
+		}
+div#course {
+	background:transparent url(../diary_img/bg.png) 0 -700px no-repeat;
+	padding:66px 0 10px 0;
+	}
+div#maincontent
+		{
+		float: left;
+		margin: 0;
+		padding: 30px 0 0 0;
+		border: 0;
+		width: 1000px;
+		background: transparent;
+		}
+div#main1content
+		{
+		float: left;
+		margin: 0;
+		padding: 30px 0 0 0;
+		border: 0;
+		width: 300px;
+		background: transparent;
+		}
+div#main2content
+		{
+		float: left;
+		margin: 0;
+		padding: 30px 0 0 0;
+		border: 0;
+		width: 300px;
+		background: transparent;
+		}
+
+div#main3content
+		{
+		float: left;
+		margin: 0;
+		padding: 30px 0 0 0;
+		border: 0;
+		width: 300px;
+		background: transparent;
+		}
+div#sidebar
+		{
+		float: left;
+		margin: 0;
+		padding: 0;
+		border: 0;
+		width: 180px;
+		background: transparent;
+//		background:transparent url(../diary_img/bg.png) 400px -700px no-repeat;
+		}
+div#footer
+		{
+		clear: both;
+		margin: 0;
+		padding-top: 16px;
+		margin-left: 12px;
+		width: 1210px;
+		line-height:24px;
+		background: #f0f0f0;
+		border-top: 0px solid #fff;
+		background: #fdfcf8 url(/ui2017/footer.png) top left repeat-x;
+		font-family:PingFangSC-Regular, 'Î¢ÈíÑÅºÚ', Verdana, Arial, 'ËÎÌå';
+		}

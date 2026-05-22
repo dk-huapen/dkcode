@@ -1,0 +1,53 @@
+<html>
+<head>
+<?php 
+include("header.php")
+?>
+</head>
+
+<body >
+<div id="wrapper">
+<div id="header">
+<a href="../../index.html"><center>热控</center></a>
+</div>
+<?php
+include("../../header/header.php");
+?>
+<div id="navsecond">
+<div id="course">
+<?php
+	include_once("job_course.php")
+?>
+</div>
+</div>
+<div id="maincontent">
+<h2><center>工作清单<center></h2>
+<?php
+	include_once("select.php")
+?>
+<h3>搜索结果：</h3>
+<div id="select_job_list">
+<center>重点工作</center>
+<?php
+	//************************************************************
+//print_r($_POST);
+	$case=$_GET["id"];
+	job_list($conn,"important",-1,2,-1,-1,$case);
+	mysqli_close($conn);
+?>
+</div>
+</div>
+<div id="sidebar">
+<ul>
+<li>待定</li>
+<li>预流</li>
+</ul>
+</div>
+<div id="footer">
+纯属个人娱乐
+</div>
+</div>
+
+
+</body>
+</html>

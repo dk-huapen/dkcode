@@ -1,0 +1,76 @@
+<html>
+	<head>
+    		<title>1号吸收塔</title>
+		<?php include("../header.php")?>
+	</head>
+	<body>
+		<?php include("top.php")?>
+		<center><h1>1号吸收塔</h1></center>
+		<script>
+			var page = 401;
+			var test =<?php
+			include('../conn.php');
+			$sql="SELECT kks,name,value,unit,updatetime,HH,H,HHH,L,LL,LLL,flag,angle,indexID,X,Y FROM sis where page=401 union SELECT kks,name,value,unit,updatetime,HH,H,HHH,L,LL,LLL,flag,angle1,indexID,X1,Y1 FROM sis where page1=401";
+			$result = mysqli_query($con,$sql);
+			$pointArray = array();
+
+			$str = "{";
+				while($row = mysqli_fetch_assoc($result)){
+					$str = $str. "_".$row['kks'].":{name:'".$row['name']."',HH:'".$row['HH']."',H:'".$row['H']."',HHH:'".$row['HHH']."',L:'".$row['L']."',LL:'".$row['LL']."',LLL:'".$row['LLL']."',updatetime:'".$row['updatetime']."',unit:'".$row['unit']."',value:".$row['value'].",flag:".$row['flag']."},";
+					$pointArray[$row['kks']] = array($row['indexID'],$row['name'],$row['X'],$row['Y'],$row['flag'],$row['LLL'],$row['angle']);
+
+				}
+				$strre = chop($str,",");
+			$strre = $strre."}";
+
+			echo $strre;
+
+			mysqli_close($con);
+	
+			?>;
+		</script>
+	<!--SIS画面-->
+		<svg width="1860" height="1000" viewBox="0 0 1860 1000" fill="gray">
+			<?php
+				$locateX = 0;
+				$locateY = 0;
+			?>
+
+
+
+<!--吸收塔-->
+<polygon points='550,10,500,50,500,450,300,450,300,500,500,500,500,670,700,670,700,70,750,70,750,10'fill='gray' stroke='black' stroke-width='2' ></polygon>
+
+<line x1="250" y1="400" x2="250" y2="600" stroke="gray" stroke-width="3"/>
+<line x1="250" y1="600" x2="500" y2="600" stroke="gray" stroke-width="3"/>
+<line x1="180" y1="400" x2="250" y2="400" stroke="gray" stroke-width="3"/>
+
+<line x1="180" y1="350" x2="180" y2="650" stroke="gray" stroke-width="3"/>
+<line x1="180" y1="650" x2="500" y2="650" stroke="gray" stroke-width="3"/>
+<line x1="180" y1="350" x2="500" y2="350" stroke="gray" stroke-width="3"/>
+
+<text x="270" y="380" fill="black" font-size="20"font-family="Arial">消防水</text>
+
+
+
+
+
+	<?php 
+				foreach($pointArray as $kks=>$d){
+					if($d[4]==0){
+					dkAI($kks);
+					}
+					if($d[4]==1){
+					dkDI($kks);
+					}
+					if($d[4]==2){
+					dkValue($kks);
+					}
+				}
+	?>
+
+	</svg>
+					<?php include("footer.php")?>
+
+</body>
+</html>

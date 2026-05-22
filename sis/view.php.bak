@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>8张3D卡片 | 均匀网格 + 可点击链接</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(145deg, #0c0f1c 0%, #1e2335 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Inter', 'Segoe UI', Roboto, sans-serif;
+            padding: 2rem 1rem;
+        }
+
+        /* 网格容器：使用CSS Grid实现均匀分布 */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            width: 100%;
+            place-items: center;           /* 水平垂直居中每个网格项 */
+        }
+
+        /* 每个卡片的透视容器 — 独立3D空间，宽高由grid控制，保持比例 */
+        .card-container {
+            width: 100%;
+            max-width: 320px;               /* 限制最大宽度，避免过大 */
+            aspect-ratio: 5 / 7;            /* 固定宽高比 300:420 ≈ 5:7 */
+            perspective: 1500px;
+        }
+
+        /* 卡片主体 */
+        .card {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            border-radius: 28px;
+            background: linear-gradient(135deg, #2a3f9e, #6d3fc7);
+            box-shadow: 0 25px 40px -15px rgba(0, 0, 0, 0.5),
+                        0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+            transform-style: preserve-3d;
+            transform: rotateX(0deg) rotateY(0deg);
+            transition: box-shadow 0.2s ease;
+            cursor: pointer;
+            overflow: hidden;
+            will-change: transform;
+        }
+
+        /* 卡片内容区域 (文字、图标) */
+        .card-content {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 1.8rem 1.2rem;
+            color: white;
+            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+            z-index: 2;
+            backface-visibility: hidden;
+            pointer-events: none;           /* 事件穿透，但按钮覆盖 */
+        }
+
+        .card-icon {
+            font-size: clamp(3rem, 10vw, 4rem);   /* 响应式图标大小 */
+            line-height: 1;
+            margin-bottom: 1rem;
+            filter: drop-shadow(0 8px 6px rgba(0,0,0,0.3));
+            transform: translateZ(12px);
+        }
+
+        .card-title {
+            font-size: clamp(1.6rem, 5vw, 2rem);
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+            text-align: center;
+            transform: translateZ(18px);
+        }
+
+        .card-desc {
+            font-size: clamp(0.85rem, 2.5vw, 0.95rem);
+            line-height: 1.5;
+            text-align: center;
+            opacity: 0.9;
+            max-width: 240px;
+            margin-bottom: 1.5rem;
+            transform: translateZ(8px);
+        }
+
+        /* 可点击链接按钮 */
+        .card-btn {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 0.7rem 2rem;
+            border-radius: 60px;
+            font-weight: 600;
+            font-size: 1rem;
+            color: white;
+            letter-spacing: 0.5px;
+            text-decoration: none;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transform: translateZ(22px);
+            transition: background 0.2s, border-color 0.2s;
+            pointer-events: auto;            /* 允许点击 */
+            white-space: nowrap;              /* 防止按钮文字换行 */
+        }
+
+        .card-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* 光泽层：动态高光跟随鼠标 */
+        .card-gloss {
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            background: radial-gradient(
+                circle at calc(var(--x, 0.5) * 100%) calc(var(--y, 0.5) * 100%), 
+                rgba(255, 255, 255, 0.45) 0%, 
+                rgba(255, 255, 255, 0) 70%
+            );
+            mix-blend-mode: overlay;
+            pointer-events: none;
+            z-index: 5;
+            transition: none;
+        }
+
+        /* 环境光晕 (装饰) */
+        .card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.12) 0%, transparent 60%);
+            opacity: 0.6;
+            pointer-events: none;
+            z-index: 3;
+        }
+
+        /* 底部微光 (装饰) */
+        .card-footer-glow {
+            position: absolute;
+            bottom: 8px;
+            left: 15%;
+            width: 70%;
+            height: 6px;
+            background: rgba(255,255,255,0.2);
+            filter: blur(8px);
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        /* 为8个卡片设置不同的渐变色 (nth-child 覆盖1-8) */
+        .card-container:nth-child(1) .card { background: linear-gradient(135deg, #2c3e8f, #5f3dc7); }
+        .card-container:nth-child(2) .card { background: linear-gradient(135deg, #9b4d96, #4a6fa5); }
+        .card-container:nth-child(3) .card { background: linear-gradient(135deg, #3e8f7a, #c75f3d); }
+        .card-container:nth-child(4) .card { background: linear-gradient(135deg, #b13e6b, #e68a2e); }
+        .card-container:nth-child(5) .card { background: linear-gradient(135deg, #4a6fa5, #9b4d96); }
+        .card-container:nth-child(6) .card { background: linear-gradient(135deg, #c75f3d, #3e8f7a); }
+        .card-container:nth-child(7) .card { background: linear-gradient(135deg, #e68a2e, #b13e6b); }
+        .card-container:nth-child(8) .card { background: linear-gradient(135deg, #5f3dc7, #2c3e8f); }
+
+        /* 响应式微调：在较小屏幕上减小gap和内边距 */
+        @media (max-width: 600px) {
+            .cards-grid {
+                gap: 1.5rem;
+            }
+            .card-container {
+                max-width: 280px;
+            }
+            .card-btn {
+                padding: 0.6rem 1.5rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="cards-grid">
+    <!-- 卡片 1：星际探索 -->
+    <div class="card-container">
+        <div class="card" data-card>
+            <div class="card-content">
+                <div class="card-icon">🚀</div>
+                <h2 class="card-title">星际探索</h2>
+                <p class="card-desc">穿越星云，登陆异星，开启宇宙冒险。</p>
+                <a class="card-btn" href="https://www.example.com/space" target="_blank" rel="noopener">启程</a>
+            </div>
+            <div class="card-gloss"></div>
+            <div class="card-footer-glow"></div>
+        </div>
+    </div>
+
+    <!-- 卡片 2：森林秘境 -->
+    <div class="card-container">
+        <div class="card" data-card>
+            <div class="card-content">
+                <div class="card-icon">🌿</div>
+                <h2 class="card-title">森林秘境</h2>
+                <p class="card-desc">深入古老森林，发现失落的自然之灵。</p>
+                <a class="card-btn" href="https://www.example.com/forest" target="_blank" rel="noopener">探索</a>
+            </div>
+            <div class="card-gloss"></div>
+            <div class="card-footer-glow"></div>
+        </div>
+    </div>
+
+    <!-- 卡片 3：未来都市 -->
+    <div class="card-container">
+        <div class="card" data-card>
+            <div class="card-content">
+                <div class="card-icon">⚡</div>
+                <h2 class="card-title">未来都市</h2>
+                <p class="card-desc">霓虹闪烁，科技与光影交织的赛博世界。</p>
+                <a class="card-btn" href="https://www.example.com/cyber" target="_blank" rel="noopener">进入</a>
+            </div>
+            <div class="card-gloss"></div>
+            <div class="card-footer-glow"></div>
+        </div>
+    </div>
+
+    <!-- 卡片 4：思维谜题 -->
+    <div class="card-container">
+        <div class="card" data-card>
+            <div class="card-content">
+                <div class="card-icon">🧩</div>
+                <h2 class="card-title">思维谜题</h2>
+                <p class="card-desc">挑战逻辑极限，解锁隐藏的智慧碎片。</p>
+                <a class="card-btn" href="https://www.example.com/puzzle" target="_blank" rel="noopener">解谜</a>
+            </div>
+            <div class="card-gloss"></div>
+            <div class="card-footer-glow"></div>
+        </div>
+    </div>
+
+    <!-- 卡片 5：深海奥秘 -->
+    <div class="card-container">
+        <div class="card" data-card>
+            <div class="card-content">
+                <div class="card-icon">🐋</div>
+                <h2 class="card-title">深海奥秘</h2>
+                <p class="card-desc">潜入未知深渊，与远古生物相遇。</p>
+                <a class="card-btn" href="https://www.example.com/ocean" target="_blank" rel="noopener">下潜</a>
+            </div>
+            <div class="card-gloss"></div>
+            <div class="card-footer-glow"></div>
+        </div>
+    </div>
+
+    <!-- 卡片 6：沙漠遗迹 -->
+    <div class="card-container">
+        <div class="card" data-card>
+            <div class="card-content">
+                <div class="card-icon">🏜️</div>
+                <h2 class="card-title">沙漠遗迹</h2>
+                <p class="card-desc">黄沙之下，埋藏着失落的文明与宝藏。</p>
+                <a class="card-btn" href="https://www.example.com/desert" target="_blank" rel="noopener">发掘</a>
+            </div>
+            <div class="card-gloss"></div>
+            <div class="card-footer-glow"></div>
+        </div>
+    </div>
+
+    <!-- 卡片 7：机械之心 -->
+    <div class="card-container">
+        <div class="card" data-card>
+            <div class="card-content">
+                <div class="card-icon">⚙️</div>
+                <h2 class="card-title">机械之心</h2>
+                <p class="card-desc">齿轮与代码，构筑仿生人的梦境。</p>
+                <a class="card-btn" href="https://www.example.com/robot" target="_blank" rel="noopener">连接</a>
+            </div>
+            <div class="card-gloss"></div>
+            <div class="card-footer-glow"></div>
+        </div>
+    </div>
+
+    <!-- 卡片 8：魔法学院 -->
+    <div class="card-container">
+        <div class="card" data-card>
+            <div class="card-content">
+                <div class="card-icon">🔮</div>
+                <h2 class="card-title">魔法学院</h2>
+                <p class="card-desc">咒语与药水，开启你的巫师之旅。</p>
+                <a class="card-btn" href="https://www.example.com/magic" target="_blank" rel="noopener">入学</a>
+            </div>
+            <div class="card-gloss"></div>
+            <div class="card-footer-glow"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    (function() {
+        const MAX_ANGLE = 14;                // 最大旋转角度
+        const cards = document.querySelectorAll('.card');
+
+        cards.forEach(card => {
+            const gloss = card.querySelector('.card-gloss');
+            if (!gloss) return;
+
+            function handleMouseMove(e) {
+                const rect = card.getBoundingClientRect();
+                let x = (e.clientX - rect.left) / rect.width;
+                let y = (e.clientY - rect.top) / rect.height;
+                x = Math.min(1, Math.max(0, x));
+                y = Math.min(1, Math.max(0, y));
+
+                const rotateY = (x - 0.5) * 2 * MAX_ANGLE;
+                const rotateX = (0.5 - y) * 2 * MAX_ANGLE;
+
+                card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+                gloss.style.setProperty('--x', x);
+                gloss.style.setProperty('--y', y);
+                card.style.boxShadow = '0 35px 55px -15px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.2) inset';
+            }
+
+            function handleMouseLeave() {
+                card.style.transform = 'rotateX(0deg) rotateY(0deg)';
+                gloss.style.setProperty('--x', '0.5');
+                gloss.style.setProperty('--y', '0.5');
+                card.style.boxShadow = '0 25px 40px -15px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.1) inset';
+            }
+
+            card.addEventListener('mousemove', handleMouseMove);
+            card.addEventListener('mouseleave', handleMouseLeave);
+
+            // 触摸事件
+            card.addEventListener('touchmove', function(e) {
+                e.preventDefault();
+                const touch = e.touches[0];
+                if (touch) {
+                    handleMouseMove({
+                        clientX: touch.clientX,
+                        clientY: touch.clientY
+                    });
+                }
+            }, { passive: false });
+
+            card.addEventListener('touchend', handleMouseLeave);
+            card.addEventListener('touchcancel', handleMouseLeave);
+        });
+    })();
+</script>
+
+<!-- 说明：采用CSS Grid自动填充均匀分布8张卡片，每张卡片宽高比5:7，支持响应式。按钮为真实链接，点击在新标签页打开示例页面。3D旋转与高光独立作用于每个卡片。 -->
+</body>
+</html>

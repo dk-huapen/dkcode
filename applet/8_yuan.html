@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+input[type=text] {
+  width: 15%;
+}
+
+input[type=text]:focus {
+  border: 1px solid #555;
+}
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  width:100%;
+  border-radius:12px;
+}
+.flex-container {
+  display: flex;
+  flex-wrap: nowrap;
+  background-color: DodgerBlue;
+}
+
+.flex-container .box {
+  background-color: #f1f1f1;
+  width: 50%;
+  margin: 10px;
+  text-align: center;
+  line-height: 75px;
+}
+.flex-container .bigbox {
+  background-color: #f1f1f1;
+  width: 100%;
+  margin: 10px;
+  text-align: left;
+  line-height: 75px;
+}
+
+</style>
+<script>
+function myFunction(str) {
+  	var x = document.getElementById(str);
+	if(isNaN(x.value)){
+		alert("输入有误，请输入数字！");
+		x.value=0.0;
+		return false;
+	}else{
+		return true;
+	}
+	
+}
+function check(){
+  	var D = parseFloat(document.getElementById("D").value);
+  	var L1 = parseFloat(document.getElementById("L1").value);
+  	var L2 = parseFloat(document.getElementById("L2").value);
+  	var A1 = parseFloat(document.getElementById("A1").value);
+  	var B1 = parseFloat(document.getElementById("B1").value);
+  	var C1 = parseFloat(document.getElementById("C1").value);
+  	var A2 = parseFloat(document.getElementById("A2").value);
+  	var B2 = parseFloat(document.getElementById("B2").value);
+  	var C2 = parseFloat(document.getElementById("C2").value);
+  	var A3 = parseFloat(document.getElementById("A3").value);
+  	var B3 = parseFloat(document.getElementById("B3").value);
+  	var C3 = parseFloat(document.getElementById("C3").value);
+  	var A4 = parseFloat(document.getElementById("A4").value);
+  	var B4 = parseFloat(document.getElementById("B4").value);
+  	var C4 = parseFloat(document.getElementById("C4").value);
+	var a13 = (A1-A3)/2;
+	var a24 = (A2-A4)/2;
+	var b24 = (B2+C4-C2-B4)/2;
+	var b13 = (B1+C3-C1-B3)/2;
+
+	alert(b24);
+	if(a13>=0){
+  		document.getElementById("A13").innerHTML = "上外圈:"+Math.abs(a13).toFixed(3);
+	}else{
+  		document.getElementById("A13").innerHTML = "下外圈:"+Math.abs(a13).toFixed(3);
+	}
+	if(a24>=0){
+  		document.getElementById("A24").innerHTML = "左外圈:"+Math.abs(a24).toFixed(3);
+	}else{
+  		document.getElementById("A24").innerHTML = "右外圈:"+Math.abs(a24).toFixed(3);
+	}
+	if(b24>=0){
+  		document.getElementById("B24").innerHTML = "上张口:"+Math.abs(b24).toFixed(3);
+	}else{
+  		document.getElementById("B24").innerHTML = "下张口:"+Math.abs(b24).toFixed(3);
+	}
+	if(b13>=0){
+  		document.getElementById("B13").innerHTML = "左张口:"+Math.abs(b13).toFixed(3);
+	}else{
+  		document.getElementById("B13").innerHTML = "右张口:"+Math.abs(b13).toFixed(3);
+	}
+	if(Math.abs(b24)<0.05){
+		b24=0;
+	}
+	if(Math.abs(b13)<0.05){
+		b13=0;
+	}
+	var q = L1/D*b24+a13;
+	var h = (L1+L2)/D*b24+a13;
+	var l = L1/D*b13+a24;
+	var r = (L1+L2)/D*b13+a24;
+  	document.getElementById("Q").innerHTML = "前地脚:"+q.toFixed(3);
+  	document.getElementById("H").innerHTML = "后地脚:"+h.toFixed(3);
+  	document.getElementById("L").innerHTML = "左移位:"+l.toFixed(3);
+  	document.getElementById("R").innerHTML = "右移位:"+r.toFixed(3);
+
+}
+</script>
+</head>
+<body>
+	<center><h1>三表对中工具</h1></center>
+
+<div class="flex-container">
+  <div class="box">
+	  <label>联轴器端面直径(D)<input type="text" value=0 id="D" onblur="myFunction(this.id)"></input></label>
+	<br>
+	<label>联轴器端面与前地脚距离(L1)<input type="text" value=0 id="L1" onblur="myFunction(this.id)"></input></label>
+	<br>
+	<label>联轴器端面与前地脚距离(L2)</label><input type="text" value=0 id="L2" onblur="myFunction(this.id)"></input></label>
+  </div>
+  <div class="box">
+	  	<span id="A13">上下外圈数据</span>
+	<span id="A24">左右外圈数据</span>
+	<br>
+	<span id="B24">上下张口数据</span>
+	<span id="B13">左右张口数据</span>
+	<br>
+	<span id="Q">前地脚数据</span>
+	<span id="H">后地脚数据</span>
+	<span id="L">左移位数据</span>
+	<span id="R">左移位数据</span>
+
+  </div>
+  </div>
+<div class="flex-container">
+  <div class="box">
+	<label>A1:</label><input type="text" width="10"value=0 id="A1"  onblur="myFunction(this.id)">
+	<label>B1:</label><input type="text" value=0 id="B1" onblur="myFunction(this.id)">
+	<label>C1:</label><input type="text" value=0 id="C1" onblur="myFunction(this.id)">
+
+<svg width="200" height="200" viewBox="0 0 200 200">
+<circle cx="100" cy="100" r="80" fill="gray" stroke="white" stroke-width="3"/>
+<text x="90" y="15" fill="black" font-size="20" font-family="Arial">A1</text>
+<text x="40" y="100" fill="black" font-size="20" font-family="Arial">B1</text>
+<text x="140" y="100" fill="black" font-size="20" font-family="Arial">C1</text>
+</svg>
+  </div>
+  <div class="box">
+	  <label>A2:<input type="text" value=0 id="A2" onblur="myFunction(this.id)"></input></label>
+	<label>B2:<input type="text" value=0 id="B2" onblur="myFunction(this.id)"></input></label>
+	<label>C2:<input type="text" value=0 id="C2" onblur="myFunction(this.id)"></input></label>
+<svg width="250" height="200" viewBox="0 0 250 200">
+<circle cx="100" cy="100" r="80" fill="gray" stroke="white" stroke-width="3"/>
+<text x="180" y="100" fill="black" font-size="20" font-family="Arial">A2</text>
+<text x="90" y="50" fill="black" font-size="20" font-family="Arial">B2</text>
+<text x="90" y="160" fill="black" font-size="20" font-family="Arial">C2</text>
+</svg>
+  </div>
+</div>
+<div class="flex-container">
+  <div class="box">
+	  <label>A3:<input type="text" value=0 id="A3" onblur="myFunction(this.id)"></input></label>
+	<label>B3:<input type="text" value=0 id="B3" onblur="myFunction(this.id)"></input></label>
+	<label>C3:<input type="text" value=0 id="C3" onblur="myFunction(this.id)"></input></label>
+<svg width="200" height="200" viewBox="0 0 200 200">
+<circle cx="100" cy="100" r="80" fill="gray" stroke="white" stroke-width="3"/>
+<text x="90" y="200" fill="black" font-size="20" font-family="Arial">A3</text>
+<text x="40" y="100" fill="black" font-size="20" font-family="Arial">C3</text>
+<text x="140" y="100" fill="black" font-size="20" font-family="Arial">B3</text>
+</svg>
+  </div>
+  <div class="box">
+	<label>A4:<input type="text" value=0 id="A4" onblur="myFunction(this.id)"></input></label>
+	<label>B4:<input type="text" value=0 id="B4" onblur="myFunction(this.id)"></input></label>
+	<label>C4:<input type="text" value=0 id="C4" onblur="myFunction(this.id)"></input></label>
+<svg width="200" height="200" viewBox="-10 -10 190 190">
+<circle cx="100" cy="100" r="80" fill="gray" stroke="white" stroke-width="3"/>
+<text x="-5" y="100" fill="black" font-size="20" font-family="Arial">A4</text>
+<text x="90" y="160" fill="black" font-size="20" font-family="Arial">B4</text>
+<text x="90" y="50" fill="black" font-size="20" font-family="Arial">C4</text>
+</svg>
+  </div>
+</div>
+<div class="flex-container">
+  <div class="bigbox">
+	  <ol>
+		  <li>输入检测数据</li>
+ 
+		  <ul>
+			  <li>A：测量电动机前脚中心到联轴器端面的距离，单位为毫米（mm）。这个数据用于后续计算中确定电动机前脚与联轴器之间的位置关系</li>
+ 
+			  <li>B：测量电动机后脚中心到前脚中心的距离，单位为毫米（mm）。该数据是计算电动机前后脚调整量的重要参数之一</li>
+ 
+			  <li>E：测量端面打表的直径，单位为毫米（mm）。端面打表是找正过程中测量联轴器端面偏差的一种方法，这个直径数据在计算偏差时会用到</li>
+		  </ul>
+ 
+<li>选择数据类型后输入数据</li>
+		  <ul>
+ 
+			  <li>C：对中上下张口数据，单位为毫米（mm）。这里的上下张口数据反映了联轴器在垂直方向上的偏差情况，是调整电动机位置的重要依据</li>
+			  <li>D：对中电动机高低数据，单位为毫米（mm）。该数据体现了电动机在垂直方向上相对于理想位置的高低偏差</li>
+		  </ul>
+		<li>根据输出结果调整垫片</li>
+ 
+		根据前两步输入的数据经过计算后，会得到调整垫片的数值。如果结果为正值 ，则需要在相应位置增加垫片来调整电动机的位置；如果结果为负值，则需要抽取相应厚度的垫片，目的是使电动机达到正确的对中位置，减少因不对中造成的振动和磨损等问题。
+	  </ol>
+  </div>
+  </div>
+
+	<button class="button" onclick="check()">点击计算</button>
+
+
+</body>
+</html>
