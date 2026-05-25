@@ -1,9 +1,6 @@
 
 <line x1="1850" y1="70" x2="1850" y2="920" stroke="orange" stroke-width="2"/>
 
-<!--吹灰器疏水和炉膛重合的线----->
-<line x1="350" y1="70" x2="350" y2="450" stroke="red" stroke-width="2"/>
-<line x1="1100" y1="70" x2="1100" y2="450" stroke="red" stroke-width="2"/>
 <!--锅炉本体----->
 <!--<polygon points='50,100 400,100 400,300 320,300 250,350 250,400 320,500 320,850 200,950 150,950 50,850' fill='gray' stroke="black" stroke-width="1"></polygon>--->
 <polygon points='600,100 350,100 350,300 380,300 450,350 450,400 370,500 370,850 450,950 500,950 600,850' fill='gray' stroke="black" stroke-width="1"></polygon>
@@ -67,68 +64,21 @@
 <!--省煤器至脱硝烟道----->
 <polygon points='1430,480 1450,480 1450,250 1550,250 1550,320 1520,320 1520,510 1480,550 1430,550' fill='gray' stroke="black" stroke-width="1"></polygon>
 <!--脱硝反应器----->
-<polygon points='1550,250 1640,250 1820,310 1820,480 1580,480 1580,320 1550,320' fill='gray' stroke="black" stroke-width="1"></polygon>
-<polyline points="1440,30 1800,30 1800,350, 1625,350 1625,400 1780,400 1780,450 1610,450 1610,600" style="fill:none" stroke="red" stroke-width="2"/>
-
-<text x="1550" y="110" fill="black" font-size="22" font-family="Arial">脱硝吹灰器状态</text>
-<text x="1490" y="137" fill="black" font-size="20" font-family="Arial">总动力电源</text>
-<text x="1490" y="162" fill="black" font-size="20" font-family="Arial">控制电源</text>
-<text x="1490" y="187" fill="black" font-size="20" font-family="Arial">动力故障</text>
-<text x="1490" y="212" fill="black" font-size="20" font-family="Arial">手动方式</text>
-<text x="1490" y="237" fill="black" font-size="20" font-family="Arial">自动方式</text>
-
-<text x="1650" y="187" fill="black" font-size="20" font-family="Arial">吹灰器已推进</text>
-<text x="1650" y="212" fill="black" font-size="20" font-family="Arial">吹灰器已后退</text>
-<text x="1650" y="237" fill="black" font-size="20" font-family="Arial">吹灰器过载</text>
-
-<polygon points='1460,20,1460,40,1500,20,1500,40' fill='white' stroke='black' stroke-width='2' ></polygon>
-<text x="1650" y="52" fill="black" font-size="18" font-family="Arial">蒸汽压力低</text>
-<text x="1548" y="62" fill="black" font-size="18" font-family="Arial">故障</text>
-<text x="1642" y="567" fill="black" font-size="18" font-family="Arial">故障</text>
+<polygon points='1550,250 1640,250 1820,310 1820,500 1580,500 1580,320 1550,320' fill='gray' stroke="black" stroke-width="1"></polygon>
 <!--脱硝反与空预器连接----->
-<polygon points='1620,480 1620,490 1670,530 1730,530 1780,490 1780,480' fill='gray' stroke="black" stroke-width="1"></polygon>
-<text x="1655" y="510" fill="black" font-size="22" font-family="Arial">至空预器</text>
+<polygon points='1620,500 1620,510 1670,550 1730,550 1780,510 1780,500' fill='gray' stroke="black" stroke-width="1"></polygon>
+<text x="1655" y="530" fill="black" font-size="22" font-family="Arial">至空预器</text>
 
 <!---空预器---->
-<polyline points="1645,780 1645,900 1390,900" style="fill:none" stroke="red" stroke-width="2"/>
-<polygon points='1530,890,1530,910,1570,890,1570,910' fill='white' stroke='black' stroke-width='2' ></polygon>
-<polygon points='1410,890,1410,910,1450,890,1450,910' fill='white' stroke='black' stroke-width='2' ></polygon>
-<text x="1602" y="922" fill="black" font-size="18" font-family="Arial">温度低</text>
-<text x="1487" y="932" fill="black" font-size="18" font-family="Arial">故障</text>
-
-<text x="1520" y="630" fill="black" font-size="22" font-family="Arial">空预器吹灰器状态</text>
-<text x="1475" y="688" fill="black" font-size="20" font-family="Arial">远方</text>
-<text x="1475" y="713" fill="black" font-size="20" font-family="Arial">电源故障</text>
 <rect x="1470" y="750" width="150" height="100" fill="gray" stroke="black" stroke-width="2"></rect>
 <rect x="1670" y="750" width="150" height="100" fill="gray" stroke="black" stroke-width="2"></rect>
-<text x="1550" y="660" fill="black" font-size="20" font-family="Arial">空预器A</text>
-<text x="1720" y="660" fill="black" font-size="20" font-family="Arial">空预器B</text>
-<text x="1620" y="688" fill="black" font-size="20" font-family="Arial">正在前进</text>
-<text x="1620" y="713" fill="black" font-size="20" font-family="Arial">正在后退</text>
-<text x="1640" y="738" fill="black" font-size="20" font-family="Arial">过载</text>
+<text x="1570" y="630" fill="black" font-size="22" font-family="Arial">空预器吹灰器状态</text>
+<text x="1530" y="660" fill="black" font-size="20" font-family="Arial">空预器A</text>
+<text x="1700" y="660" fill="black" font-size="20" font-family="Arial">空预器B</text>
+<text x="1600" y="688" fill="black" font-size="20" font-family="Arial">正在前进</text>
+<text x="1600" y="713" fill="black" font-size="20" font-family="Arial">正在后退</text>
+<text x="1620" y="738" fill="black" font-size="20" font-family="Arial">过载</text>
 <!---吹灰器状态---->
-<polyline points="160,30 725,30 725,70" style="fill:none" stroke="red" stroke-width="2"/>
-<polyline points="350,70 1420,70 1420,780 1780,780" style="fill:none" stroke="red" stroke-width="2"/>
-<line x1="1530" y1="820" x2="1780" y2="820" stroke="red" stroke-width="2"/>
-<text x="20" y="38" fill="black" font-size="22" font-family="Arial">本体吹灰气源</text>
-<polygon points='200,20,200,40,240,20,240,40' fill='white' stroke='black' stroke-width='2' ></polygon>
-<polygon points='540,60,540,80,580,60,580,80' fill='white' stroke='black' stroke-width='2' ></polygon>
-<polygon points='870,60,870,80,910,60,910,80' fill='white' stroke='black' stroke-width='2' ></polygon>
-<polygon points='1270,60,1270,80,1310,60,1310,80' fill='white' stroke='black' stroke-width='2' ></polygon>
-
-<text x="110" y="635" fill="black" font-size="22" font-family="Arial">本体吹灰器状态</text>
-<text x="125" y="676" fill="black" font-size="20" font-family="Arial">总动力电源有电</text>
-<text x="125" y="701" fill="black" font-size="20" font-family="Arial">总控制电源有电</text>
-<text x="125" y="726" fill="black" font-size="20" font-family="Arial">左前侧阀门动力故障</text>
-<text x="125" y="751" fill="black" font-size="20" font-family="Arial">左前侧吹灰动力故障</text>
-<text x="125" y="776" fill="black" font-size="20" font-family="Arial">右后侧阀门动力故障</text>
-<text x="125" y="801" fill="black" font-size="20" font-family="Arial">右后侧吹灰动力故障</text>
-
-<text x="90" y="855" fill="black" font-size="22" font-family="Arial">本体吹灰器控制方式</text>
-<text x="125" y="896" fill="black" font-size="20" font-family="Arial">模拟方式</text>
-<text x="125" y="921" fill="black" font-size="20" font-family="Arial">自动方式</text>
-<text x="125" y="946" fill="black" font-size="20" font-family="Arial">手动方式</text>
-
 <text x="650" y="500" fill="black" font-size="22" font-family="Arial">炉膛吹灰器状态</text>
 <text x="610" y="530" fill="black" font-size="20" font-family="Arial">左前侧</text>
 <text x="780" y="530" fill="black" font-size="20" font-family="Arial">右后侧</text>
@@ -142,23 +92,21 @@
 <text x="680" y="443" fill="black" font-size="20" font-family="Arial">正在后退</text>
 <text x="700" y="468" fill="black" font-size="20" font-family="Arial">过载</text>
 
+<line x1="350" y1="300" x2="350" y2="450" stroke="red" stroke-width="2"/>
 <text x="268" y="337" fill="black" font-size="18" font-family="Arial">温度低</text>
 <text x="275" y="437" fill="black" font-size="18" font-family="Arial">故障</text>
 
-<polyline points="600,850 600,900 860,900" style="fill:none" stroke="red" stroke-width="2"/>
-<polygon points='680,890,680,910,720,890,720,910' fill='white' stroke='black' stroke-width='2' ></polygon>
-<polygon points='800,890,800,910,840,890,840,910' fill='white' stroke='black' stroke-width='2' ></polygon>
+<polyline points="600,850 600,900 830,900" style="fill:none" stroke="red" stroke-width="2"/>
 <text x="580" y="922" fill="black" font-size="18" font-family="Arial">温度低</text>
-<text x="755" y="932" fill="black" font-size="18" font-family="Arial">故障</text>
+<text x="755" y="922" fill="black" font-size="18" font-family="Arial">故障</text>
 
+<line x1="1100" y1="300" x2="1100" y2="450" stroke="red" stroke-width="2"/>
 <text x="1126" y="337" fill="black" font-size="18" font-family="Arial">温度低</text>
 <text x="1130" y="437" fill="black" font-size="18" font-family="Arial">故障</text>
 
-<polyline points="1080,850 1080,900 1360,900" style="fill:none" stroke="red" stroke-width="2"/>
-<polygon points='1180,890,1180,910,1220,890,1220,910' fill='white' stroke='black' stroke-width='2' ></polygon>
-<polygon points='1300,890,1300,910,1340,890,1340,910' fill='white' stroke='black' stroke-width='2' ></polygon>
+<polyline points="1080,850 1080,900 1310,900" style="fill:none" stroke="red" stroke-width="2"/>
 <text x="1080" y="922" fill="black" font-size="18" font-family="Arial">温度低</text>
-<text x="1255" y="932" fill="black" font-size="18" font-family="Arial">故障</text>
+<text x="1255" y="922" fill="black" font-size="18" font-family="Arial">故障</text>
 
 <text x="460" y="650" fill="black" font-size="22" font-family="Arial">左墙</text>
 <text x="705" y="650" fill="black" font-size="22" font-family="Arial">前墙</text>
